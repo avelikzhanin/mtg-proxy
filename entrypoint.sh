@@ -5,7 +5,7 @@ PORT=${PORT:-8443}
 
 # Generate secret if not provided via env var
 if [ -z "$MTPROTO_SECRET" ]; then
-  MTPROTO_SECRET=$(mtg generate-secret --hex google.com)
+  MTPROTO_SECRET=$(mtg generate-secret --hex ya.ru)
 fi
 
 # Write config
@@ -20,6 +20,7 @@ EOF
 echo "==========================================="
 echo "  MTProto Proxy running on port $PORT"
 echo "  Secret: $MTPROTO_SECRET"
+echo "  Domain: ya.ru"
 echo "  DNS: Cloudflare DoH (1.1.1.1)"
 echo "==========================================="
 
