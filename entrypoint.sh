@@ -12,18 +12,15 @@ fi
 cat > /tmp/config.toml <<EOF
 secret = "$MTPROTO_SECRET"
 bind-to = "0.0.0.0:$PORT"
+
+[network]
+dns = "https://1.1.1.1"
 EOF
 
 echo "==========================================="
 echo "  MTProto Proxy running on port $PORT"
 echo "  Secret: $MTPROTO_SECRET"
-echo "==========================================="
-echo ""
-echo "  After enabling TCP Proxy in Railway,"
-echo "  use this link in Telegram (replace HOST and PORT):"
-echo ""
-echo "  tg://proxy?server=HOST&port=PORT&secret=$MTPROTO_SECRET"
-echo ""
+echo "  DNS: Cloudflare DoH (1.1.1.1)"
 echo "==========================================="
 
 exec mtg run /tmp/config.toml
